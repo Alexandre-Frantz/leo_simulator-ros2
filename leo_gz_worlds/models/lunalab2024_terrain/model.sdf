@@ -1,0 +1,185 @@
+<?xml version="1.0"?>
+<sdf version="1.6">
+  <model name="lunalab2024_terrain">
+    <pose>3.0 -3.0 0.0 1.5708 0.0 0.0 </pose>
+    <static>true</static>
+
+    <link name="lunalab_terrain">
+      
+      <collision name="collision">
+        <geometry>
+          <mesh>
+            <uri>model://lunalab2024_terrain/meshes/lunalab2024_terrain.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+
+      <visual name="visual">	
+        <geometry>
+          <mesh>
+            <uri>model://lunalab2024_terrain/meshes/lunalab2024_terrain.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+
+
+
+    <link name="rock1_001">
+    <!-- -Y Z -X with respect to LunaLab -->
+    <pose>-3.7 0 -2.5 0 0 0</pose>
+      <collision name="collision">
+        <geometry>
+          <mesh>
+            <scale>0.3 0.3 0.3</scale>
+            <uri>model://lunalab2024_terrain/meshes/rock_1.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="visual">
+        <geometry>
+          <mesh>
+            <scale>0.3 0.3 0.3</scale>
+            <uri>model://lunalab2024_terrain/meshes/rock_1.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+
+
+    <link name="rock2_001">
+    <!-- -Y Z -X with respect to LunaLab -->
+    <pose>-5 0 -5 0 0 0</pose>
+      <collision name="collision">
+        <geometry>
+          <mesh>
+            <scale>0.3 0.3 0.3</scale>
+            <uri>model://lunalab2024_terrain/meshes/rock_2.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="visual">
+        <geometry>
+          <mesh>
+            <scale>0.3 0.3 0.3</scale>
+            <uri>model://lunalab2024_terrain/meshes/rock_2.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+
+
+    <link name="rock2_002">
+    <!-- -Y Z -X with respect to LunaLab -->
+    <pose>-9 -0.1 -2 0 0 0</pose>
+      <collision name="collision">
+        <geometry>
+          <mesh>
+            <scale>0.3 0.3 0.3</scale>
+            <uri>model://lunalab2024_terrain/meshes/rock_2.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="visual">
+        <geometry>
+          <mesh>
+            <scale>0.3 0.3 0.3</scale>
+            <uri>model://lunalab2024_terrain/meshes/rock_2.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+
+    <link name="rock3_001">
+    <!-- -Y Z -X with respect to LunaLab -->
+    <pose>-9.7 -0.17 -2.5 0 0 0</pose>
+      <collision name="collision">
+        <geometry>
+          <mesh>
+            <scale>0.3 0.3 0.3</scale>
+            <uri>model://lunalab2024_terrain/meshes/rock_3.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="visual">
+        <geometry>
+          <mesh>
+            <scale>0.3 0.3 0.3</scale>
+            <uri>model://lunalab2024_terrain/meshes/rock_3.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    
+
+    <link name="rock3_002">
+    <!-- -Y Z -X with respect to LunaLab -->
+    <pose>-5.7 -0.02 -1.5 0 0 0</pose>
+      <collision name="collision">
+        <geometry>
+          <mesh>
+            <scale>0.3 0.3 0.3</scale>
+            <uri>model://lunalab2024_terrain/meshes/rock_3.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="visual">
+        <geometry>
+          <mesh>
+            <scale>0.3 0.3 0.3</scale>
+            <uri>model://lunalab2024_terrain/meshes/rock_3.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+
+    <link name="rock4_001">
+    <!-- -Y Z -X with respect to LunaLab -->
+    <pose>-6.2 0 -4.7 0 0 0</pose>
+      <collision name="collision">
+        <geometry>
+          <mesh>
+            <scale>0.3 0.3 0.3</scale>
+            <uri>model://lunalab2024_terrain/meshes/rock_4.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="visual">
+        <geometry>
+          <mesh>
+            <scale>0.3 0.3 0.3</scale>
+            <uri>model://lunalab2024_terrain/meshes/rock_4.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+
+
+    <link name="rock4_002">
+    <!-- -Y Z -X with respect to LunaLab -->
+    <pose>-8.9 0 -5.7 0 0 0</pose>
+      <collision name="collision">
+        <geometry>
+          <mesh>
+            <scale>0.3 0.3 0.3</scale>
+            <uri>model://lunalab2024_terrain/meshes/rock_4.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="visual">
+        <geometry>
+          <mesh>
+            <scale>0.3 0.3 0.3</scale>
+            <uri>model://lunalab2024_terrain/meshes/rock_4.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+
+    <!-- Make it static to avoid unnecessary physics calculations -->
+    <static>1</static>
+    <!-- Auto disable will not calculate hysics for objects that are currently not being used. -->
+    <allow_auto_disable>1</allow_auto_disable>
+
+  </model>
+</sdf>
