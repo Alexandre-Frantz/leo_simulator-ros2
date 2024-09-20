@@ -12,11 +12,11 @@ Packages to simulate Leo Rover in ROS 2.
 3. Clone [leo_common-ros2](https://github.com/LeoRover/leo_common-ros2) repository into the workspace:
    ```
    cd your_workspace_name/src
-   git clone https://github.com/LeoRover/leo_common-ros2
+   git clone https://github.com/Alexandre-Frantz/leo-common-ros2.git
    ```
 4. Clone this repository into the workspace:
    ```
-   git clone https://github.com/LeoRover/leo_simulator-ros2
+   git clone https://github.com/Alexandre-Frantz/leo_simulator-ros2.git
    ```
 5. If using Gazebo Garden (skip this step if using Fortress):
    ```
