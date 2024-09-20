@@ -4,6 +4,8 @@ Packages to simulate Leo Rover in ROS 2.
 * leo_gz_bringup - Launch files for starting simulation and adding Leo Rover inside a simulated world.
 * leo_gz_plugins - Gazebo plugins for simulated Leo Rover
 * leo_gz_worlds - Custom simulation worlds
+
+**DISCLAIMER** This project has been taken and modified for academic purposes from this link: https://github.com/LeoRover/leo_simulator-ros2
   
 ### Building the simulation
 
