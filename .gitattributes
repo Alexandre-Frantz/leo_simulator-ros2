@@ -1,1 +1,5 @@
 leo_gz_worlds/models/uniworkshop_terrain/meshes/UniWorkshopEdited.dae filter=lfs diff=lfs merge=lfs -text
+leo_gz_worlds/models/moon_surface0/meshes/moonfloor1.dae filter=lfs diff=lfs merge=lfs -text
+leo_gz_worlds/models/moon_surface0/meshes/moonfloorock1.dae filter=lfs diff=lfs merge=lfs -text
+leo_gz_worlds/models/moon_surface0/meshes/*.exr filter=lfs diff=lfs merge=lfs -text
+leo_gz_worlds/models/moon_surface0/meshes/moon_dusted_01_nor_gl_8k.exr filter=lfs diff=lfs merge=lfs -text
