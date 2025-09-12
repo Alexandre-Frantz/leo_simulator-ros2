@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<sdf version="1.6">
+  <model name="uniworkshop_terrain">
+    <pose>0.0 0.0 0.0 0.0 0.0 0.0 </pose>
+    <static>true</static>
+
+    <link name="workshop_terrain">
+      
+      <collision name="collision">
+        <geometry>
+          <mesh>
+            <uri>model://uniworkshop_terrain/meshes/UniWorkshopEdited.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+
+      <visual name="visual">	
+        <geometry>
+          <mesh>
+            <uri>model://uniworkshop_terrain/meshes/UniWorkshopEdited.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+
+    <!-- Make it static to avoid unnecessary physics calculations -->
+    <static>1</static>
+    <!-- Auto disable will not calculate hysics for objects that are currently not being used. -->
+    <allow_auto_disable>1</allow_auto_disable>
+
+  </model>
+</sdf>
