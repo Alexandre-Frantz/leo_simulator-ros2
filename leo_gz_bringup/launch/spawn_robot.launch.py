@@ -73,6 +73,12 @@ def spawn_robot(context: LaunchContext, namespace: LaunchConfiguration):
             "robot_description",
             "-name",
             robot_gazebo_name,
+            # "-x", # Uniworkshop
+            # "2.0",
+            # "-x", # Moon big
+            # "-2.0", # Moon big
+            # "-y", # Moon big
+            # "5.0", # Moon big
             "-z",
             "1.65",
         ],
