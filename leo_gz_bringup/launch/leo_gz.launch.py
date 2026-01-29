@@ -50,7 +50,7 @@ def generate_launch_description():
 
     robot_ns = DeclareLaunchArgument(
         "robot_ns",
-        default_value="",
+        default_value="leo04",
         description="Robot namespace",
     )
 
@@ -91,7 +91,7 @@ def generate_launch_description():
         name="lidar_bridge",
         parameters=[
             {
-                # "qos_overrides./tf_static.publisher.durability": "transient_local",
+                #"qos_overrides./tf_static.publisher.durability": "transient_local",
                 "config_file": lidar_bridge_config,
             }
         ],
