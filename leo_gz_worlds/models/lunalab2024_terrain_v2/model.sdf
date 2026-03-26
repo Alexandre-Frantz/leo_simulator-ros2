@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<sdf version="1.6">
+  <model name="lunalab2024_terrain_v2">
+    <pose>-3 -3 0.0 1.5708 0.0 0.0 </pose>
+    <static>true</static>
+
+    <link name="lunalab_terrain_v2">
+      
+      <collision name="collision">
+        <geometry>
+          <mesh>
+            <uri>model://lunalab2024_terrain_v2/meshes/lunalab-edit-rocks.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+
+      <visual name="visual">	
+        <geometry>
+          <mesh>
+            <uri>model://lunalab2024_terrain_v2/meshes/lunalab-edit-rocks.obj</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+
+    <!-- Make it static to avoid unnecessary physics calculations -->
+    <static>1</static>
+    <!-- Auto disable will not calculate hysics for objects that are currently not being used. -->
+    <allow_auto_disable>1</allow_auto_disable>
+
+  </model>
+</sdf>
