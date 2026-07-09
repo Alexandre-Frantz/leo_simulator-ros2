@@ -26,6 +26,7 @@ from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument
 from launch.actions import IncludeLaunchDescription, OpaqueFunction
+from launch.conditions import IfCondition
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch.substitutions import LaunchConfiguration, TextSubstitution
 from launch_ros.actions import Node
@@ -79,6 +80,31 @@ def generate_launch_description():
         description="Space or comma-separated list of robot namespaces",
     )
 
+    lander = DeclareLaunchArgument(
+        "lander",
+        default_value="false",
+        description="If true, publish the static TF lander -> lander_lidar_link "
+                    "(use with a world that contains the argonaut_lander model)",
+    )
+
+    # Static TF anchoring the lander's reference LiDAR to the lander frame.
+    # z=2.0 matches the sensor <pose> offset in argonaut_lander/model.sdf.
+    # Only spawned when lander:=true.
+    lander_tf = Node(
+        package="tf2_ros",
+        executable="static_transform_publisher",
+        name="lander_lidar_static_tf",
+        arguments=[
+            "--x", "0", "--y", "0", "--z", "1.85",
+            "--roll", "0", "--pitch", "0", "--yaw", "0",
+            "--frame-id", "lander",
+            "--child-frame-id", "lander_lidar_link",
+        ],
+        parameters=[{"use_sim_time": True}],
+        condition=IfCondition(LaunchConfiguration("lander")),
+        output="screen",
+    )
+
     # Setup to launch the simulator and Gazebo world
     gz_sim = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
@@ -125,9 +151,11 @@ def generate_launch_description():
         [
             sim_world,
             robot_ns,
+            lander,
             gz_sim,
             spawn_multi_robots,
             topic_bridge,
             lidar_topic_bridge,
+            lander_tf,
         ]
     )

@@ -49,7 +49,7 @@
   direction: GZ_TO_ROS
 
 
-  # LEO05
+  # LEO06
 - ros_topic_name: "leo06/livox/lidar"
   gz_topic_name: "leo06/livox/lidar/points"
   ros_type_name: "sensor_msgs/msg/PointCloud2"
@@ -72,4 +72,11 @@
   gz_topic_name: "leo06/realsense_d455/image"
   ros_type_name: "sensor_msgs/msg/Image"
   gz_type_name: "ignition.msgs.Image"
+  direction: GZ_TO_ROS
+
+# Argonaut Lander
+- ros_topic_name: "lander/lidar"
+  gz_topic_name: "lander/lidar/points"
+  ros_type_name: "sensor_msgs/msg/PointCloud2"
+  gz_type_name: "ignition.msgs.PointCloudPacked"
   direction: GZ_TO_ROS

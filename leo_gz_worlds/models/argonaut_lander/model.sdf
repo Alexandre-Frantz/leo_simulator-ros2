@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<sdf version="1.6">
+  <model name="argonaut_lander">
+    <static>true</static>
+    <pose>0 0 0 0 0 0</pose>          <!-- lander defines global frame G -->
+
+    <link name="lander_link">
+      <collision name="collision">
+        <geometry>
+            <mesh>
+                <uri>model://argonaut_lander/meshes/Argonaut_TASI_Newlander_01.stl </uri>
+                <scale>0.2 0.2 0.2</scale>
+            </mesh>
+        </geometry>
+      </collision>
+      <visual name="visual">
+        <geometry>
+            <mesh>
+                <uri>model://argonaut_lander/meshes/Argonaut_TASI_Newlander_01.stl</uri>
+                <scale>0.2 0.2 0.2</scale>
+            </mesh>
+        </geometry>
+      </visual>
+
+      <!-- Reference LiDAR — sensor sits directly under the link in SDF -->
+      <sensor name="lander_lidar" type="gpu_lidar">
+        <pose>0 0 1.85 0 0 0</pose>          <!-- top of lander (0.2*8.72=1.74) + 0.1 clearance; keep launch TF --z in sync -->
+        <topic>lander/lidar</topic>
+        <update_rate>10</update_rate>
+        <visualize>true</visualize>
+        <ray>
+          <scan>
+            <horizontal><samples>720</samples><resolution>1</resolution>
+              <min_angle>-3.141592</min_angle><max_angle>3.141592</max_angle></horizontal>
+            <vertical><samples>128</samples><resolution>1</resolution>
+              <min_angle>-1.4</min_angle><max_angle>0.2</max_angle></vertical>  <!-- -80 deg down: small footprint (~0.35 m from base) -->
+          </scan>
+          <range><min>0.2</min><max>30.0</max><resolution>0.01</resolution></range>
+          <noise><type>gaussian</type><mean>0.0</mean><stddev>0.01</stddev></noise>
+        </ray>
+        <ignition_frame_id>lander_lidar_link</ignition_frame_id>
+      </sensor>
+    </link>
+  </model>
+</sdf>
