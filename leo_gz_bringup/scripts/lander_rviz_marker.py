@@ -3,19 +3,19 @@
 lander_rviz_marker.py
 
 Publishes the Argonaut lander STL as a visualization_msgs/Marker (MESH_RESOURCE)
-so it can be shown in RViz without a URDF. The marker is stamped in the `lander`
-frame and re-published on a latched (transient_local) topic so RViz picks it up
-even if it subscribes late.
+so it can be shown in RViz without a URDF. The marker is stamped in the
+`lander/base_footprint` frame and re-published on a latched (transient_local)
+topic so RViz picks it up even if it subscribes late.
 
 Run (no build needed):
     python3 lander_rviz_marker.py
 
 Then in RViz:
-    - Fixed Frame: lander
+    - Fixed Frame: lander/base_footprint
     - Add -> Marker, topic: /lander/marker
 
 Parameters (override with e.g. --ros-args -p scale:=0.2):
-    frame_id : TF frame to attach the mesh to (default: lander)
+    frame_id : TF frame to attach the mesh to (default: lander/base_footprint)
     mesh     : absolute path to the STL (default: source-tree path)
     scale    : uniform mesh scale, must match the SDF (default: 0.2)
     color    : [r, g, b, a] tint for the untextured STL (default: gold)
@@ -38,7 +38,7 @@ class LanderMarker(Node):
     def __init__(self):
         super().__init__("lander_rviz_marker")
 
-        self.frame_id = self.declare_parameter("frame_id", "lander").value
+        self.frame_id = self.declare_parameter("frame_id", "lander/base_footprint").value
         self.mesh = self.declare_parameter("mesh", DEFAULT_MESH).value
         self.scale = float(self.declare_parameter("scale", 0.2).value)
         self.color = self.declare_parameter("color", [0.85, 0.65, 0.13, 1.0]).value
@@ -70,7 +70,7 @@ class LanderMarker(Node):
         m.mesh_resource = "file://" + self.mesh
         # STL has no embedded material -> tint with the marker color.
         m.mesh_use_embedded_materials = False
-        m.pose.orientation.w = 1.0  # identity; lander frame == model origin
+        m.pose.orientation.w = 1.0  # identity; base_footprint == model origin
         m.scale.x = m.scale.y = m.scale.z = self.scale
         m.color.r, m.color.g, m.color.b, m.color.a = [float(c) for c in self.color]
         self.pub.publish(m)

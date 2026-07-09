@@ -83,7 +83,7 @@ def generate_launch_description():
     lander = DeclareLaunchArgument(
         "lander",
         default_value="false",
-        description="If true, publish the static TF lander -> lander_lidar_link "
+        description="If true, publish the static TF lander/base_footprint -> lander/lidar_frame "
                     "(use with a world that contains the argonaut_lander model)",
     )
 
@@ -97,8 +97,8 @@ def generate_launch_description():
         arguments=[
             "--x", "0", "--y", "0", "--z", "1.85",
             "--roll", "0", "--pitch", "0", "--yaw", "0",
-            "--frame-id", "lander",
-            "--child-frame-id", "lander_lidar_link",
+            "--frame-id", "lander/base_footprint",
+            "--child-frame-id", "lander/lidar_frame",
         ],
         parameters=[{"use_sim_time": True}],
         condition=IfCondition(LaunchConfiguration("lander")),
