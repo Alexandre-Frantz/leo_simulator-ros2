@@ -104,7 +104,7 @@
     <model name="Argonaut">
       <include>
         <uri>model://argonaut_lander</uri>
-        <pose>-2.0 0 0 0 0 0</pose>     <!-- place it in the world -->
+        <pose>-1.5 0 0 0 0 0</pose>     <!-- place it in the world -->
       </include>
     </model>
 
