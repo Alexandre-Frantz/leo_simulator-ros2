@@ -14,6 +14,14 @@ install(
   DESTINATION share/${PROJECT_NAME}
 )
 
+# Python scripts runnable via `ros2 run leo_gz_bringup <name>`
+install(
+  PROGRAMS
+    scripts/lander_rviz_marker.py
+  DESTINATION lib/${PROJECT_NAME}
+  RENAME lander_rviz_marker
+)
+
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
   ament_lint_auto_find_test_dependencies()

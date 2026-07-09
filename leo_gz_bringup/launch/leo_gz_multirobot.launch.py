@@ -88,7 +88,7 @@ def generate_launch_description():
     )
 
     # Static TF anchoring the lander's reference LiDAR to the lander frame.
-    # z=2.0 matches the sensor <pose> offset in argonaut_lander/model.sdf.
+    # z=1.85 matches the sensor <pose> offset in argonaut_lander/model.sdf.
     # Only spawned when lander:=true.
     lander_tf = Node(
         package="tf2_ros",
@@ -100,6 +100,17 @@ def generate_launch_description():
             "--frame-id", "lander",
             "--child-frame-id", "lander_lidar_link",
         ],
+        parameters=[{"use_sim_time": True}],
+        condition=IfCondition(LaunchConfiguration("lander")),
+        output="screen",
+    )
+
+    # RViz mesh marker of the lander (STL has no URDF), in the `lander` frame.
+    # Only spawned when lander:=true.
+    lander_marker = Node(
+        package="leo_gz_bringup",
+        executable="lander_rviz_marker",
+        name="lander_rviz_marker",
         parameters=[{"use_sim_time": True}],
         condition=IfCondition(LaunchConfiguration("lander")),
         output="screen",
@@ -157,5 +168,6 @@ def generate_launch_description():
             topic_bridge,
             lidar_topic_bridge,
             lander_tf,
+            lander_marker,
         ]
     )
