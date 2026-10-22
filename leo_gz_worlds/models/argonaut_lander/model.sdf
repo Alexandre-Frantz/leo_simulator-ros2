@@ -33,7 +33,7 @@
       <sensor name="lander_lidar" type="gpu_lidar">
         <pose>0 0 1.85 0 0 0</pose>          <!-- top of lander (0.2*8.72=1.74) + 0.1 clearance; keep launch TF --z in sync -->
         <topic>lander/lidar</topic>
-        <update_rate>10</update_rate>
+        <update_rate>5</update_rate>
         <visualize>true</visualize>
         <ray>
           <scan>
